@@ -106,7 +106,8 @@ export interface Message {
   id: string;
   senderId: string;
   content: string;
-  timestamp: string;
+  timestamp?: string;
+  createdAt?: string;
   type: "text" | "file" | "system";
 }
 

@@ -103,7 +103,8 @@ export default function SwapsPage() {
       <div className="space-y-4">
         {filtered.length > 0 ? (
           filtered.map((swap) => {
-            const StatusIcon = statusIcons[swap.status];
+            const swapStatus = swap.status as SwapStatus;
+            const StatusIcon = statusIcons[swapStatus] || Clock;
             return (
               <Card key={swap.id} hover>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -147,9 +148,9 @@ export default function SwapsPage() {
 
                   {/* Status */}
                   <div className="flex items-center gap-3 shrink-0">
-                    <Badge variant={statusColors[swap.status]} size="md">
+                    <Badge variant={statusColors[swapStatus]} size="md">
                       <StatusIcon className="w-3.5 h-3.5 mr-1" />
-                      {swap.status}
+                      {swapStatus}
                     </Badge>
                     {swap.status === "accepted" && (
                       <Link href="/chat">

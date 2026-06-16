@@ -40,7 +40,7 @@ export default function MessageBubble({
             isOwn ? "text-right" : ""
           )}
         >
-          {formatRelativeTime(message.timestamp)}
+          {formatRelativeTime(message.createdAt || message.timestamp)}
         </p>
       </div>
     </div>

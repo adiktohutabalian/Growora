@@ -12,7 +12,7 @@ interface ScheduleSessionModalProps {
   onClose: () => void;
   partnerName: string;
   partnerId: string;
-  skillExchange: {
+  skillExchange?: {
     skill1: string;
     skill2: string;
   };
@@ -69,21 +69,23 @@ export default function ScheduleSessionModal({
       ) : (
         <div className="space-y-5">
           {/* Session info */}
-          <div className="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
-            <div className="flex-1 text-center">
-              <p className="text-xs text-gray-500 mb-1">Learning</p>
-              <p className="font-semibold text-emerald-600">
-                {skillExchange.skill1}
-              </p>
+          {skillExchange && (
+            <div className="flex items-center gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+              <div className="flex-1 text-center">
+                <p className="text-xs text-gray-500 mb-1">Learning</p>
+                <p className="font-semibold text-emerald-600">
+                  {skillExchange.skill1}
+                </p>
+              </div>
+              <span className="text-gray-400">↔</span>
+              <div className="flex-1 text-center">
+                <p className="text-xs text-gray-500 mb-1">Teaching</p>
+                <p className="font-semibold text-gray-900">
+                  {skillExchange.skill2}
+                </p>
+              </div>
             </div>
-            <span className="text-gray-400">↔</span>
-            <div className="flex-1 text-center">
-              <p className="text-xs text-gray-500 mb-1">Teaching</p>
-              <p className="font-semibold text-gray-900">
-                {skillExchange.skill2}
-              </p>
-            </div>
-          </div>
+          )}
 
           {/* Date */}
           <Input

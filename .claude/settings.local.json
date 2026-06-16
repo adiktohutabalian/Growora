@@ -20,7 +20,9 @@
       "Bash(node -e \"const m = require\\('@prisma/adapter-better-sqlite3'\\); console.log\\(Object.keys\\(m\\)\\)\")",
       "Bash(netstat -tlnp)",
       "Bash(sqlite3 dev.db \"SELECT id, fullName, email FROM users;\")",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s \"http://localhost:3000/avatars/sarah.jpg\")"
     ]
   }
 }

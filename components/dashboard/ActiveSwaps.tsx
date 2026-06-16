@@ -69,7 +69,7 @@ export default function ActiveSwaps() {
               <Badge variant="success" size="sm">
                 {swap.skillWanted}
               </Badge>
-              <Badge variant={statusColors[swap.status]} size="sm" className="ml-auto">
+              <Badge variant={statusColors[swap.status as SwapStatus] || "default"} size="sm" className="ml-auto">
                 {swap.status}
               </Badge>
             </div>
