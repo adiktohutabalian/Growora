@@ -28,6 +28,7 @@ type Tab = "profile" | "notifications" | "account" | "premium";
 
 export default function SettingsPage() {
   const { user, updateUser, logout } = useApp();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<Tab>("profile");
   const [saved, setSaved] = useState(false);
   const [form, setForm] = useState({
@@ -364,7 +365,10 @@ export default function SettingsPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={logout}
+                    onClick={() => {
+                      logout();
+                      router.push("/auth/login");
+                    }}
                     className="text-red-600 border-red-200 hover:bg-red-50"
                   >
                     Sign Out
